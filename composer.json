@@ -1,0 +1,6 @@
+{
+    "name": "mailerlite/mailerlite_rest_v1",
+    "require": {
+        "php": ">=5.3"
+    }
+}
