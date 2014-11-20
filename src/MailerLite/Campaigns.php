@@ -4,7 +4,7 @@ namespace MailerLite;
 	
 class Campaigns extends Base\Rest
 {
-	function ML_Campaigns( $api_key )
+	function __construct( $api_key )
 	{
 		$this->name = 'campaigns';
 

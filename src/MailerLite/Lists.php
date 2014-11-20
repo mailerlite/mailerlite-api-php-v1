@@ -4,7 +4,7 @@ namespace MailerLite;
 
 class Lists extends Base\Rest
 {
-	function ML_Lists( $api_key )
+	function __construct( $api_key )
 	{
 		$this->name = 'lists';
 
