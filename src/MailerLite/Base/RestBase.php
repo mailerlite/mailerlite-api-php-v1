@@ -5,20 +5,20 @@ namespace MailerLite\Base;
 use Exception;
 use InvalidArgumentException;
 
-class RestBase
-{
-	protected $url;
-	protected $verb;
-	protected $requestBody;
-	protected $requestLength;
-	protected $username;
-	protected $password;
-	protected $acceptType;
-	protected $responseBody;
-	protected $responseInfo;
+class RestBase {
 
-	protected $apiKey = '';
-	protected $path = '';
+	protected
+		$url,
+		$verb,
+		$requestBody,
+		$requestLength,
+		$username,
+		$password,
+		$acceptType,
+		$responseBody,
+		$responseInfo,
+		$apiKey = '',
+		$path = '';
 	
 	public function __construct ($url = 'https://app.mailerlite.com/api/v1/', $verb = 'GET')
 	{
@@ -32,7 +32,7 @@ class RestBase
 		$this->responseInfo		= null;
 	}
 	
-	public function flush ()
+	public function flush()
 	{
 		$this->requestBody		= null;
 		$this->requestLength	= 0;
@@ -41,7 +41,7 @@ class RestBase
 		$this->responseInfo		= null;
 	}
 	
-	public function execute ( $method = null, $data = null )
+	public function execute($method = null, $data = null)
 	{
 		$ch = curl_init();
 		$this->setAuth($ch);
@@ -87,7 +87,7 @@ class RestBase
 		return $this->responseBody;		
 	}
 	
-	public function buildPostBody ()
+	public function buildPostBody()
 	{
 		$data = $this->requestBody;
 
@@ -102,14 +102,14 @@ class RestBase
 		$this->requestBody = $data;
 	}
 	
-	protected function executeGet ($ch)
+	protected function executeGet($ch)
 	{
 		$this->path .= ( strpos( $this->path, '?' ) === false ? '?' : '&' ) . $this->requestBody; 
 
 		$this->doExecute($ch);	
 	}
 	
-	protected function executePost ($ch)
+	protected function executePost($ch)
 	{		
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $this->requestBody);
 		curl_setopt($ch, CURLOPT_POST, 1);
@@ -117,7 +117,7 @@ class RestBase
 		$this->doExecute($ch);	
 	}
 	
-	protected function executePut ($ch)
+	protected function executePut($ch)
 	{		
 		$this->requestLength = strlen($this->requestBody);
 		
@@ -134,16 +134,16 @@ class RestBase
 		fclose($fh);
 	}
 	
-	protected function executeDelete ($ch)
+	protected function executeDelete($ch)
 	{
 		$this->path .= ( strpos( $this->path, '?' ) === false ? '?' : '&' ) . $this->requestBody; 
 
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
-		
+
 		$this->doExecute($ch);
 	}
 	
-	protected function doExecute (&$curlHandle)
+	protected function doExecute(&$curlHandle)
 	{
 		$this->setCurlOpts($curlHandle);
 		$this->responseBody = curl_exec($curlHandle);
@@ -153,7 +153,7 @@ class RestBase
 		curl_close($curlHandle);
 	}
 	
-	protected function setCurlOpts (&$curlHandle)
+	protected function setCurlOpts(&$curlHandle)
 	{
 		curl_setopt($curlHandle, CURLOPT_TIMEOUT, 10);
 		curl_setopt($curlHandle, CURLOPT_URL, $this->path);
@@ -165,7 +165,7 @@ class RestBase
         curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, true );
 	}
 	
-	protected function setAuth (&$curlHandle)
+	protected function setAuth(&$curlHandle)
 	{
 		if ($this->username !== null && $this->password !== null)
 		{
@@ -174,63 +174,64 @@ class RestBase
 		}
 	}
 	
-	public function getAcceptType ()
+	public function getAcceptType()
 	{
 		return $this->acceptType;
 	} 
 	
-	public function setAcceptType ($acceptType)
+	public function setAcceptType($acceptType)
 	{
 		$this->acceptType = $acceptType;
 	} 
 	
-	public function getPassword ()
+	public function getPassword()
 	{
 		return $this->password;
 	} 
 	
-	public function setPassword ($password)
+	public function setPassword($password)
 	{
 		$this->password = $password;
 	} 
 	
-	public function getResponseBody ()
+	public function getResponseBody()
 	{
 		return $this->responseBody;
 	} 
 	
-	public function getResponseInfo ()
+	public function getResponseInfo()
 	{
 		return $this->responseInfo;
 	} 
 	
-	public function getUrl ()
+	public function getUrl()
 	{
 		return $this->url;
 	} 
 	
-	public function setUrl ($url)
+	public function setUrl($url)
 	{
 		$this->url = $url;
 	} 
 	
-	public function getUsername ()
+	public function getUsername()
 	{
 		return $this->username;
 	} 
 	
-	public function setUsername ($username)
+	public function setUsername($username)
 	{
 		$this->username = $username;
 	} 
 	
-	public function getVerb ()
+	public function getVerb()
 	{
 		return $this->verb;
 	} 
 	
-	public function setVerb ($verb)
+	public function setVerb($verb)
 	{
 		$this->verb = $verb;
-	} 
+	}
+
 }

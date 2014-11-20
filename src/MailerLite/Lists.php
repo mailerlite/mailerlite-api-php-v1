@@ -2,33 +2,30 @@
 
 namespace MailerLite;
 
-class Lists extends Base\Rest
-{
-	function __construct( $api_key )
+class Lists extends Base\Rest {
+
+	public function __construct($apiKey)
 	{
 		$this->name = 'lists';
-
-		parent::__construct($api_key);
+		parent::__construct($apiKey);
 	}
 
-	function getActive( )
+	public function getActive()
 	{
 		$this->path .= 'active/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getUnsubscribed( )
+	public function getUnsubscribed()
 	{
 		$this->path .= 'unsubscribed/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getBounced( )
+	public function getBounced()
 	{
 		$this->path .= 'bounced/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
+	
 }

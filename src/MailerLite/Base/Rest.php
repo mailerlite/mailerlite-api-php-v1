@@ -4,58 +4,60 @@ namespace MailerLite\Base;
 
 use InvalidArgumentException;
 
-class Rest extends RestBase
-{
-	var $name = '';
+class Rest extends RestBase {
 
-	var $id = null;
+	protected
+		$name = '',
+		$id = null;
 
-	function __construct( $api_key )
+	function __construct($apiKey)
 	{
 		parent::__construct();
-
-		$this->apiKey = $api_key;
-
+		$this->apiKey = $apiKey;
 		$this->path = $this->url . $this->name . '/';
 	}
 
-	function setId( $id )
+	function setId($id)
 	{
 		$this->id = $id;
-
-		if ( $this->id )
+		if ($this->id)
+		{
 			$this->path = $this->url . $this->name . '/' . $id . '/';
+		}
 		else
+		{
 			$this->path = $this->url . $this->name . '/';
-
+		}
 		return $this;
 	}
 
-	function getAll( )
+	function getAll()
 	{
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function get( $data = null )
+	function get()
 	{
-		if (!$this->id)
+		if ( ! $this->id)
+		{
 			throw new InvalidArgumentException('ID is not set.');
-
-		return $this->execute( 'GET' );
+		}
+		return $this->execute('GET');
 	}
 
-	function add( $data = null )
+	function add($data = null)
 	{
-		return $this->execute( 'POST', $data );
+		return $this->execute('POST', $data);
 	}
 
-	function put( $data = null)
+	function put($data = null)
 	{
-		return $this->execute( 'PUT', $data );
+		return $this->execute('PUT', $data);
 	}
 
-	function remove( $data = null )
+	function remove()
 	{
-		return $this->execute( 'DELETE' );
+		return $this->execute('DELETE');
 	}
+
 }

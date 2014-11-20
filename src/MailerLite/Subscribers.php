@@ -2,56 +2,49 @@
 
 namespace MailerLite;
 	
-class Subscribers extends Base\Rest
-{
-	function __construct( $api_key )
+class Subscribers extends Base\Rest {
+
+	public function __construct($apiKey)
 	{
 		$this->name = 'subscribers';
-
-		parent::__construct($api_key);
+		parent::__construct($apiKey);
 	}
 
-	function add( $subscriber = null, $resubscribe = 0 )
+	public function add($subscriber = null, $resubscribe = 0)
 	{
 		$subscriber['resubscribe'] = $resubscribe;
-
-		return $this->execute( 'POST', $subscriber );
+		return $this->execute('POST', $subscriber);
 	}
 
-	function addAll( $subscribers, $resubscribe = 0 )
+	function addAll($subscribers, $resubscribe = 0)
 	{
 		$data['resubscribe'] = $resubscribe;
-
 		$data['subscribers'] = $subscribers;
-
 		$this->path .= 'import/';
-
-		return $this->execute( 'POST', $data );
+		return $this->execute('POST', $data);
 	}
 
-	function get( $email = null, $history = 0 )
+	public function get($email = null, $history = 0)
 	{
-		$this->setId( null );
-
-		$this->path .= '?email=' . urlencode( $email );
-
-		if ( $history )
+		$this->setId(null);
+		$this->path .= '?email=' . urlencode($email);
+		if ($history)
+		{
 			$this->path .= '&history=1';
-
-		return $this->execute( 'GET' );
+		}
+		return $this->execute('GET');
 	}
 
-	function remove( $email = null )
+	public function remove($email = null)
 	{
-		$this->path .= '?email=' . urlencode( $email );
-
-		return $this->execute( 'DELETE' );
+		$this->path .= '?email=' . urlencode($email);
+		return $this->execute('DELETE');
 	}
 
-	function unsubscribe( $email )
+	public function unsubscribe($email)
 	{
-		$this->path .= 'unsubscribe/?email=' . urlencode( $email );
-
-		return $this->execute( 'POST' );
+		$this->path .= 'unsubscribe/?email=' . urlencode($email);
+		return $this->execute('POST');
 	}
+
 }

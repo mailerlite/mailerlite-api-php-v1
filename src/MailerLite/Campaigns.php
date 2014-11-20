@@ -2,54 +2,48 @@
 
 namespace MailerLite;
 	
-class Campaigns extends Base\Rest
-{
-	function __construct( $api_key )
+class Campaigns extends Base\Rest {
+	
+	public function __construct($apiKey)
 	{
 		$this->name = 'campaigns';
-
-		parent::__construct($api_key);
+		parent::__construct($apiKey);
 	}
 
-	function getRecipients( )
+	public function getRecipients()
 	{
 		$this->path .= 'recipients/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getOpens( )
+	public function getOpens()
 	{
 		$this->path .= 'opens/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getClicks( )
+	public function getClicks()
 	{
 		$this->path .= 'clicks/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getUnsubscribes( )
+	public function getUnsubscribes()
 	{
 		$this->path .= 'unsubscribes/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getBounces( )
+	public function getBounces()
 	{
 		$this->path .= 'bounces/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
 
-	function getJunk( )
+	public function getJunk()
 	{
 		$this->path .= 'junks/';
-
-		return $this->execute( 'GET' );
+		return $this->execute('GET');
 	}
+
 }
