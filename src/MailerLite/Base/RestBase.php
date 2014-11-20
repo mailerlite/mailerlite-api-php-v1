@@ -1,6 +1,11 @@
 <?php
 
-class ML_Rest_Base
+namespace MailerLite\Base;
+
+use Exception;
+use InvalidArgumentException;
+
+class RestBase
 {
 	protected $url;
 	protected $verb;

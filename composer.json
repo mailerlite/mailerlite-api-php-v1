@@ -1,6 +1,14 @@
 {
-    "name": "mailerlite/mailerlite_rest_v1",
-    "require": {
-        "php": ">=5.3"
-    }
+	"name": "mailerlite/mailerlite_rest_v1",
+	"type": "library",
+	"description": "MailerLite PHP API Wrapper",
+	"keywords": ["mailerlite"],
+	"require": {
+		"php": ">=5.3"
+	},
+	"autoload": {
+		"psr-0": { 
+			"MailerLite": "src/" 
+		}
+	}
 }
