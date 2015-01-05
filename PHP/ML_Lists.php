@@ -11,25 +11,25 @@
 			parent::__construct($api_key);
 		}
 
-		function getActive( )
+		function getActive( $data = null )
 		{
 			$this->path .= 'active/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getUnsubscribed( )
+		function getUnsubscribed( $data = null )
 		{
 			$this->path .= 'unsubscribed/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getBounced( )
+		function getBounced( $data = null )
 		{			
 			$this->path .= 'bounced/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 	}
 

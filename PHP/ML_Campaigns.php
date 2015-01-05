@@ -11,46 +11,46 @@
 			parent::__construct($api_key);
 		}
 
-		function getRecipients( )
+		function getRecipients( $data = null )
 		{
 			$this->path .= 'recipients/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getOpens( )
+		function getOpens( $data = null )
 		{
 			$this->path .= 'opens/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getClicks( )
+		function getClicks( $data = null )
 		{
 			$this->path .= 'clicks/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getUnsubscribes( )
+		function getUnsubscribes( $data = null )
 		{
 			$this->path .= 'unsubscribes/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getBounces( )
+		function getBounces( $data = null )
 		{
 			$this->path .= 'bounces/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
-		function getJunk( )
+		function getJunk( $data = null )
 		{
 			$this->path .= 'junks/';
 
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 	}
 
