@@ -29,9 +29,9 @@
 			return $this;
 		}
 
-		function getAll( )
+		function getAll( $data = null )
 		{
-			return $this->execute( 'GET' );
+			return $this->execute( 'GET', $data );
 		}
 
 		function get( $data = null )
