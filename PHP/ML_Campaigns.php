@@ -48,7 +48,7 @@
 
 		function getJunk( $data = null )
 		{
-			$this->path .= 'junks/';
+			$this->path .= 'junk/';
 
 			return $this->execute( 'GET', $data );
 		}
