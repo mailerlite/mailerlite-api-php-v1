@@ -157,7 +157,10 @@ class ML_Rest_Base
 
 		curl_setopt($curlHandle, CURLOPT_SSL_VERIFYHOST, false );
         curl_setopt($curlHandle, CURLOPT_SSL_VERIFYPEER, false );
-        curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, true );
+        if (!ini_get('open_basedir') && !ini_get('safe_mode'))
+        {
+            curl_setopt($curlHandle, CURLOPT_FOLLOWLOCATION, true );
+        }
 	}
 	
 	protected function setAuth (&$curlHandle)
