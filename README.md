@@ -16,8 +16,6 @@ Add `mailerlite/mailerlite_rest_v1` to `composer.json`.
 }
 ```
 
-## TODO
+## Contributors
 
-- Rewrite with tests.
-- API classes shouldn't extend the transport mechanism class.
-- Replace low-level cURL junk with a highlevel library like Guzzle.
+https://github.com/paulschwarz/
