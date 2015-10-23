@@ -19,3 +19,4 @@ Add `mailerlite/mailerlite_rest_v1` to `composer.json`.
 ## Contributors
 
 https://github.com/paulschwarz/
+https://github.com/eima/
