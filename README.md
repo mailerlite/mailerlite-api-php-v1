@@ -22,6 +22,17 @@ Add `mailerlite/mailerlite_rest_v1` to `composer.json`.
 }
 ```
 
+### Usage
+
+
+```php
+require_once 'vendor/autoload.php';
+use MailerLite\Campaigns;
+$campaigns = new Campaigns('xxxxxxxxxxxxxxxxxx');
+$all = $campaigns->getAll();
+
+```
+
 ## Contributors
 
 https://github.com/paulschwarz/
