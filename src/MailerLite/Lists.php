@@ -2,7 +2,7 @@
 
 namespace MailerLite;
 
-class ML_Lists extends Base\Rest {
+class Lists extends Base\Rest {
 
 	public function __construct($apiKey)
 	{
