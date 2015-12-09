@@ -43,7 +43,13 @@ class ML_Subscribers extends Base\Rest {
 
 	public function unsubscribe($email)
 	{
+		$previous_id = $this->id;
+		$this->setId( null );
+
 		$this->path .= 'unsubscribe/?email=' . urlencode($email);
+
+		$this->setId( $previous_id );
+
 		return $this->execute('POST');
 	}
 
