@@ -48,9 +48,11 @@ class Subscribers extends Base\Rest {
 
 		$this->path .= 'unsubscribe/?email=' . urlencode($email);
 
+		$result = $this->execute('POST');
+
 		$this->setId( $previous_id );
 
-		return $this->execute('POST');
+		return $result;
 	}
 
 }
