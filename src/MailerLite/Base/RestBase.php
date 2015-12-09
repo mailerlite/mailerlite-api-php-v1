@@ -148,6 +148,10 @@ class RestBase {
 		$this->setCurlOpts($curlHandle);
 		$this->responseBody = curl_exec($curlHandle);
 
+		if ($this->responseBody === false) {
+			$this->responseBody = 'CURL errno: '.curl_errno($curlHandle).', CURL error: '.curl_error($curlHandle);
+		}
+		
 		$this->responseInfo	= curl_getinfo($curlHandle);
 		
 		curl_close($curlHandle);

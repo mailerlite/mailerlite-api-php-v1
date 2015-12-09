@@ -1,8 +1,8 @@
 <?php
 
 namespace MailerLite;
-	
-class ML_Subscribers extends Base\Rest {
+
+class Subscribers extends Base\Rest {
 
 	public function __construct($apiKey)
 	{

@@ -9,17 +9,28 @@ Official PHP wrapper for MailerLite API
 Add `mailerlite/mailerlite_rest_v1` to `composer.json`.
 
 ```json
-"repositories": [
-    {
-      "url": "git@github.com:mailerlite/mailerlite-api-php-v1.git",
-      "type": "vcs"
-    }
-  ],
 {
+    "repositories": [
+      {
+        "url": "git@github.com:mailerlite/mailerlite-api-php-v1.git",
+        "type": "vcs"
+      }
+    ],
     "require": {
         "mailerlite/mailerlite_rest_v1": "1.1.*"
     }
 }
+```
+
+### Usage
+
+
+```php
+require_once 'vendor/autoload.php';
+use MailerLite\Campaigns;
+$campaigns = new Campaigns('xxxxxxxxxxxxxxxxxx');
+$all = $campaigns->getAll();
+
 ```
 
 ## Contributors

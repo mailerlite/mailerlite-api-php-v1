@@ -2,7 +2,7 @@
 
 namespace MailerLite;
 	
-class ML_Campaigns extends Base\Rest {
+class Campaigns extends Base\Rest {
 	
 	public function __construct($apiKey)
 	{
