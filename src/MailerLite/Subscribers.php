@@ -4,6 +4,8 @@ namespace MailerLite;
 
 class Subscribers extends Base\Rest {
 
+	public $autoresponders = null;
+
 	public function __construct($apiKey)
 	{
 		$this->name = 'subscribers';
@@ -13,6 +15,13 @@ class Subscribers extends Base\Rest {
 	public function add($subscriber = null, $resubscribe = 0)
 	{
 		$subscriber['resubscribe'] = $resubscribe;
+
+		if (is_null($this->autoresponders)) {
+			$this->autoresponders = true;
+		}
+
+		$subscriber['autoresponders'] = $this->autoresponders;
+
 		return $this->execute('POST', $subscriber);
 	}
 
@@ -20,6 +29,13 @@ class Subscribers extends Base\Rest {
 	{
 		$data['resubscribe'] = $resubscribe;
 		$data['subscribers'] = $subscribers;
+
+		if (is_null($this->autoresponders)) {
+			$this->autoresponders = false;
+		}
+
+		$data['autoresponders'] = $this->autoresponders;
+
 		$this->path .= 'import/';
 		return $this->execute('POST', $data);
 	}
@@ -55,4 +71,10 @@ class Subscribers extends Base\Rest {
 		return $result;
 	}
 
+	public function setAutoresponders($autoresponders = true)
+	{
+		$this->autoresponders = $autoresponders;
+
+		return $this;
+	}
 }
